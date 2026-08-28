@@ -30,6 +30,11 @@ elements/<slug>.md, the exhaustive source. If this map is your only source, you 
 @ /read    what did I decide months ago, and why | journal.md canon.md
 @ /ingest  turn a pile of my own material into a folder structure I can work from | world-model-ingestion.md
 @ /project-manager   re-open a project I left | project-manager.md pm-flag.md
+@ /project-page      publish a job's page for the TEAM | `.claude/skills/project-page/` — NOT an element.
+                     RENDERS what /project-manager wrote, decides nothing. EACH JOB HAS TWO ARTIFACTS, one
+                     per skill: brief.md (private, PM) → STREET.md in DFY RECORDS (shared, this). marriott ·
+                     westgate · fraser are JOBS carrying both. ⚠ the `project-page` folder under
+                     state/projects/ is this SKILL'S OWN build log — a project ABOUT the skill, not a job.
 @ /autoplan          re-sharpen the plan as reality drifts from it | build-plan-plane.md
 @ /build             execute the plan, our way | build-plan-plane.md
 @ /checkin           catch a delta between plan and brief | project-manager.md — near the END, not an opener
