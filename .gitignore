@@ -72,3 +72,17 @@ migration-audit/
 # also keeps a tracked copy from colliding with the untracked one every install
 # already has. See docs/LOCAL-INSTRUCTIONS.md.
 CLAUDE.local.md
+
+# ── SKILLS JUNCTIONED IN FROM THE AI BRAIN. NEVER COMMITTED. ─────────────────
+# A skill may deliberately live in the person's own AI Brain rather than this repo
+# (their call: it is then backed up by Drive, versioned, and portable between
+# machines), reached from here by a junction/symlink so the harness can find it.
+# `project-page` is the first, created 2026-08-24.
+#
+# ⛔ THE JUNCTION MUST NEVER BE TRACKED. Following it leads straight into the
+#    person's own notes folder, so a `git add -A` here would commit their private
+#    material into a repo that has PRs open upstream. Committing is irreversible —
+#    it is cached and indexed even if deleted afterwards.
+# ⚠ Add a line here for each new junctioned skill; a bare `.claude/skills/*` would
+#    also hide the real, tracked skills that ship with this repo.
+.claude/skills/project-page/
