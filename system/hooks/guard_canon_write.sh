@@ -123,8 +123,19 @@ content = ti.get("content", ti.get("new_string", "")) or ""
 # has no folder of its own (shared/registry.py, Project.canon). Leaving the single most
 # always-loaded file out of a guard whose entire argument is "always-loaded costs are paid forever"
 # would have shipped the guard with its main target missing.
-in_canon_dir = "/canon/" in path
-is_root_canon = os.path.basename(path) == "canon.md"
+# NORMALISE THE SEPARATOR BEFORE EITHER TEST. The Write/Edit tool passes the path in the host is
+# native form, so on Windows it arrives with backslashes. The literal "/canon/" is not a substring
+# of such a path, so the guard did not recognise a canon write AT ALL and exited 0 - meaning canon
+# had NO size rail and NO expiry rail on Windows, while every write still reported success.
+# This is the Python-side counterpart of what system/hooks/lib/winpath_fold.sh does for the bash
+# comparisons; it cannot live there because this test runs inside the embedded Python, not the shell.
+# Proven 2026-09-01 with identical content differing only in separator: backslash exit 0, forward
+# slash exit 2. Note the asymmetry it created - the Bash door to canon stayed correctly CLOSED, so
+# the door with the rails behind it was the open one, the inverse of the design.
+# Normalise a COPY; `path` itself is still reported verbatim in the allow/deny message below.
+norm = path.replace("\\", "/")
+in_canon_dir = "/canon/" in norm
+is_root_canon = norm.rsplit("/", 1)[-1] == "canon.md"
 if not (in_canon_dir or is_root_canon):
     print("ALLOW_NONE"); sys.exit()
 
